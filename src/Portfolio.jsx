@@ -70,10 +70,16 @@ const T = {
     ],
     projectTag: "academic capstone · nutrition tracking",
     projectGithub: "View on GitHub",
+    projectLive: "Live site",
     projectBody:
       "NutriFlow is a mobile nutrition tracker built to remove friction from logging meals. The React Native client talks to a .NET REST API secured with JWT, backed by PostgreSQL on Azure, with the Gemini API handling food recognition from photos.",
     stat1: "manual data entry reduced",
     stat2: "meal logging time",
+    projectShots: [
+      { src: "/nutriflow/ai-intake.jpg", alt: "Nutritionist reviewing a meal logged from a photo, auto-estimated by AI" },
+      { src: "/nutriflow/patient-plan.jpg", alt: "Patient-facing nutrition plan screen" },
+      { src: "/nutriflow/panel-editor.jpg", alt: "Plan editor with live preview on the nutritionist panel" },
+    ],
     credentials: [
       {
         title: "Information Technology Analyst — Tecnicatura",
@@ -138,10 +144,16 @@ const T = {
     ],
     projectTag: "proyecto académico · seguimiento nutricional",
     projectGithub: "Ver en GitHub",
+    projectLive: "Ver sitio",
     projectBody:
       "NutriFlow es una app móvil de seguimiento nutricional pensada para sacarle la fricción a cargar comidas. El cliente en React Native habla con una API REST en .NET asegurada con JWT, respaldada por PostgreSQL en Azure, con la API de Gemini reconociendo alimentos a partir de fotos.",
     stat1: "menos carga manual de datos",
     stat2: "tiempo de registro de comidas",
+    projectShots: [
+      { src: "/nutriflow/ai-intake.jpg", alt: "Nutricionista revisando una comida cargada por foto, estimada automáticamente por IA" },
+      { src: "/nutriflow/patient-plan.jpg", alt: "Pantalla del plan nutricional del lado del paciente" },
+      { src: "/nutriflow/panel-editor.jpg", alt: "Editor de plan con vista previa en vivo en el panel del nutricionista" },
+    ],
     credentials: [
       {
         title: "Análisis de Tecnologías de la Información — Tecnicatura",
@@ -497,15 +509,26 @@ export default function Portfolio() {
                   {t.projectTag}
                 </p>
               </div>
-              <a
-                href="https://github.com/MC307656"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md"
-                style={{ border: `1px solid ${C.line}`, fontFamily: FONT_MONO, fontSize: 12 }}
-              >
-                <Github size={14} /> {t.projectGithub}
-              </a>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href="https://nutriflowort.github.io/NutriFlow-Landing/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md font-semibold"
+                  style={{ background: C.signal, color: C.ink, fontFamily: FONT_MONO, fontSize: 12 }}
+                >
+                  <ArrowUpRight size={14} /> {t.projectLive}
+                </a>
+                <a
+                  href="https://github.com/Maticerde/NutriFlow-Showcase"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md"
+                  style={{ border: `1px solid ${C.line}`, fontFamily: FONT_MONO, fontSize: 12 }}
+                >
+                  <Github size={14} /> {t.projectGithub}
+                </a>
+              </div>
             </div>
             <p style={{ color: C.paper, fontSize: 15, lineHeight: 1.7, maxWidth: 620 }} className="mb-6">
               {t.projectBody}
@@ -514,12 +537,23 @@ export default function Portfolio() {
               <Stat value="↓70%" label={t.stat1} />
               <Stat value="3m → <30s" label={t.stat2} />
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-6">
               {["React Native", "C# / .NET", "PostgreSQL", "Azure App Service", "Gemini API", "GitHub Actions", "Scrum"].map(
                 (tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 )
               )}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {t.projectShots.map((shot) => (
+                <div
+                  key={shot.src}
+                  className="relative rounded-md overflow-hidden"
+                  style={{ border: `1px solid ${C.lineFaint}`, background: C.panel2 }}
+                >
+                  <img src={shot.src} alt={shot.alt} loading="lazy" className="w-full h-auto block" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
