@@ -33,7 +33,7 @@ const FONT_MONO = "'IBM Plex Mono', monospace";
 
 const T = {
   en: {
-    role: "/ junior developer",
+    role: "/ Junior Full Stack Developer",
     status: "open to work",
     nav: [
       { id: "profile", label: "Profile" },
@@ -107,7 +107,7 @@ const T = {
     footer: "REV 2026.08 · BUILT WITH REACT",
   },
   es: {
-    role: "/ desarrollador junior",
+    role: "/ Junior Full Stack Developer",
     status: "disponible",
     nav: [
       { id: "profile", label: "Perfil" },
@@ -324,7 +324,7 @@ function openPdf(base64) {
 
 export default function Portfolio() {
   useGoogleFonts();
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("es");
   const t = T[lang];
 
   return (
@@ -621,7 +621,7 @@ export default function Portfolio() {
                   <Linkedin size={16} /> LinkedIn
                 </a>
                 <a
-                  href="https://github.com/MC307656"
+                  href="https://github.com/Maticerde"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-md"
